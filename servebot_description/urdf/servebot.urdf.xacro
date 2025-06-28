@@ -1,9 +1,14 @@
 <?xml version="1.0"?>
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="servebot">
-   
+
+
+    <!-- Include gazebo parameters-->
     <xacro:include filename="$(find servebot_description)/urdf/servebot_gazebo.xacro"/>
-  
+    
+    <!-- ROS2 control-->
+    <xacro:include filename="$(find servebot_description)/urdf/servebot_ros2_control.xacro"/>
+
     <link name="base_footprint"/>
    
     <link name="base_link"> 

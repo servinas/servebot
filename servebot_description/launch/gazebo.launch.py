@@ -13,13 +13,20 @@ from launch_ros.parameter_descriptions import ParameterValue
 def generate_launch_description():
     servebot_description_dir=get_package_share_directory("servebot_description")
     gazebo_ros_dir = get_package_share_directory("gazebo_ros")
+    ros_distro =os.environ["ROS_DISTRO"]
+    is_ignition="True"if ros_distro=="jazzy" else "False"
+   
     model_arg=DeclareLaunchArgument(
         name="model",
         default_value=os.path.join(servebot_description_dir,"urdf","servebot.urdf.xacro"),
         description="Absolute path to robot URDF file"
     )
     
-    robot_description=ParameterValue(Command(["xacro ",LaunchConfiguration("model")]), value_type=str)
+    robot_description=ParameterValue(Command([
+        "xacro ",
+        LaunchConfiguration("model")
+        
+        ]), value_type=str)
     
     robot_state_publisher_node=Node(
         package="robot_state_publisher",
