@@ -8,7 +8,7 @@ def generate_launch_description():
     
     gazebo=IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("servebot_descrption"),
+            get_package_share_directory("servebot_description"),
             "launch",
             "gazebo.launch.py"
         )
