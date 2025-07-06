@@ -11,7 +11,7 @@
             </hardware>
         </xacro:if>
            
-        <xacro:unless>
+        <xacro:unless value="$(arg is_sim)">
             <hardware>
                 <plugin>servebot_firmware/ServebotInterface</plugin>
                  <param name="port">/dev/ttyACM0</param>
