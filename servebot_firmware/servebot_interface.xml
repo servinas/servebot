@@ -1,0 +1,9 @@
+<library path="servebot_firmware">
+    <class name="servebot_firmware/ServebotInterface" 
+    type="servebot_firmware::ServebotInterface"
+    base_class_type="hardware_interface::SystemInterface">
+        <description>
+            servebot Hardware Interface
+        </description>
+    </class>
+</library>

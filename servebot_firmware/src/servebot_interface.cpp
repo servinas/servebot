@@ -54,8 +54,8 @@ namespace servebot_firmware
         std::vector<hardware_interface::StateInterface> state_interfaces;
         for (size_t i = 0; i < info_.joints.size(); i++)
         {
-            state_interfaces.emplace_back(hardware_interface::StateInterface(info_.joints.at(i).name, hardware_interface::HW_IF_POSITION, &position_states_.at(i)));
-            state_interfaces.emplace_back(hardware_interface::StateInterface(info_.joints.at(i).name, hardware_interface::HW_IF_VELOCITY, &velocity_states_.at(i)));
+            state_interfaces.emplace_back(hardware_interface::StateInterface(info_.joints[i].name, hardware_interface::HW_IF_POSITION, &position_states_[i]));
+            state_interfaces.emplace_back(hardware_interface::StateInterface(info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &velocity_states_[i]));
         }
 
         return state_interfaces;
@@ -66,7 +66,7 @@ namespace servebot_firmware
         std::vector<hardware_interface::CommandInterface> command_interfaces;
         for (size_t i = 0; i < info_.joints.size(); i++)
         {
-            command_interfaces.emplace_back(hardware_interface::StateInterface(info_.joints.at(i).name, hardware_interface::HW_IF_VELOCITY, &velocity_commands_.at(i)));
+            command_interfaces.emplace_back(hardware_interface::CommandInterface(info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &velocity_commands_[i]));
         }
 
         return command_interfaces;
@@ -186,3 +186,6 @@ namespace servebot_firmware
 
     }
 }
+
+#include <pluginlib/class_list_macros.hpp>
+PLUGINLIB_EXPORT_CLASS(servebot_firmware::ServebotInterface,hardware_interface::SystemInterface)
