@@ -53,11 +53,14 @@ install(
   DESTINATION lib
 )
 install(
-DIRECTORY include
+DIRECTORY include 
 DESTINATION include
 )
 
-
+install(
+DIRECTORY launch 
+DESTINATION share/${PROJECT_NAME}
+)
 
 ament_export_include_directories(
   include

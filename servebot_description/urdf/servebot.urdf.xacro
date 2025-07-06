@@ -6,6 +6,9 @@
     <!-- Include gazebo parameters-->
     <xacro:include filename="$(find servebot_description)/urdf/servebot_gazebo.xacro"/>
     
+    <!-- Load Simulated or Real Hardware Interfaces -->
+    <xacro:arg name="is_sim" default="true"/>
+    
     <!-- ROS2 control-->
     <xacro:include filename="$(find servebot_description)/urdf/servebot_ros2_control.xacro"/>
 
