@@ -9,6 +9,7 @@
         "/opt/ros/humble/include/**",
         "/home/servinas/colcon_ws/src/servebot_controller/include/**",
         "/home/servinas/colcon_ws/src/servebot_description/include/**",
+        "/home/servinas/colcon_ws/src/servebot_firmware/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",
